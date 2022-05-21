@@ -3,9 +3,7 @@ import {  ControllerFieldState, ControllerRenderProps, FieldValues, UseFormState
 import FormGenerator from "./FormGenerator.tsx";
 
 // todos: 
-// split
-// submit
-// suport more inputs
+// support more inputs
 // default style
 // factory as part of def?
 // generator func
@@ -24,6 +22,7 @@ const factory={
 }
 export const Demo:React.FC = () => {
     return <div>Demo
-        <FormGenerator inputsDef={[{label:'Test', name:'test',type:'test'}, {name:'bad', type:'bad', label:'Bad'},{label:'Test3', name:'test4',type:'test'}, {name:'bad2', type:'bad', label:'Bad2'},, {name:'bad', type:'bad', label:'Bad'}, {name:'bad', type:'bad', label:'Bad'}, {name:'bad', type:'bad', label:'Bad'}, {name:'bad', type:'bad', label:'Bad'}, {name:'bad', type:'bad', label:'Bad'}]} inputsFactory={factory} fallbackInput={FallbackCmp}/>
+        <FormGenerator inputsDef={[{label:'Test', name:'test',type:'test'}, {name:'bad', type:'bad', label:'Bad'},{label:'Test3', name:'test4',type:'test'},
+         ]} inputsFactory={factory} fallbackInput={FallbackCmp}/>
     </div>
 }

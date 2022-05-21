@@ -1,11 +1,11 @@
 import React, { SyntheticEvent } from 'react';
 import { useForm, FieldValues, ErrorOption } from 'react-hook-form';
-import { FormGeneratorProps } from '../types';
-import { InputRenderer } from './InputRenderer.tsx';
+import { FormGeneratorProps as FormBuilderProps } from '../types';
+import { FormInput } from './FormInput.tsx';
 
 const formId = 'form';
-const defaultValues = { test: '' };
-const FormGenerator: React.FC<FormGeneratorProps> = ({ inputsDef, inputsFactory, fallbackInput, formOptions }) => {
+const defaultValues = { test: '', check:true};
+const FormBuilder: React.FC<FormBuilderProps> = ({ inputsDef, config, fallbackInput, formOptions }) => {
     const { control, handleSubmit } = useForm({ ...formOptions, defaultValues });
 
     const onSubmit = (data: FieldValues) => console.log(data);
@@ -17,10 +17,10 @@ const FormGenerator: React.FC<FormGeneratorProps> = ({ inputsDef, inputsFactory,
             <form onSubmit={handleSubmit(onSubmit, onError)} id={formId}>
                 <div className="inputs-container">
                     {inputsDef.map((i) => (
-                        <InputRenderer
+                        <FormInput
                             key={i.name}
                             inputDef={i}
-                            inputsFactory={inputsFactory}
+                            config={config}
                             fallbackInput={fallbackInput}
                             control={control}
                         />
@@ -31,4 +31,4 @@ const FormGenerator: React.FC<FormGeneratorProps> = ({ inputsDef, inputsFactory,
         </div>
     );
 };
-export default FormGenerator;
+export default FormBuilder;

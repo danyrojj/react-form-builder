@@ -1,13 +1,24 @@
 import { ReactElement } from "react";
-import { Control, UseFormProps, ValidationRule } from "react-hook-form";
-import { ControllerCalllbackParam } from "./components/Demo";
+import { Control, ControllerFieldState, ControllerRenderProps, FieldValues, UseFormProps, UseFormStateReturn, ValidationRule } from "react-hook-form";
 
-export type InputsFactory = Record<string,(param:ControllerCalllbackParam)=>ReactElement>;
+
+export interface ControllerCalllbackParam {
+    field: ControllerRenderProps<FieldValues, string>;
+    fieldState: ControllerFieldState;
+    formState: UseFormStateReturn<FieldValues>;
+}
+
+
+export interface FieldConfig {
+factory:(param:ControllerCalllbackParam)=>ReactElement
+}
+
+export type Config = Record<string,FieldConfig>;
 
 export type FallbackInputCmp = ()=>ReactElement;
 export interface FormGeneratorProps {
     inputsDef:InputDef[];
-    inputsFactory:InputsFactory //todo how to pas enum from outside
+    config:Config //todo how to pas enum from outside
     formOptions?:UseFormProps;
     fallbackInput?:FallbackInputCmp;
 }
@@ -29,7 +40,7 @@ export interface InputDef{
 
 export interface InputRendererProps{
     inputDef:InputDef;
-    inputsFactory:InputsFactory;
+    config:Config;
     fallbackInput?:FallbackInputCmp;
     control:Control
 }

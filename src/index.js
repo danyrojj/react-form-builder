@@ -1,6 +1,6 @@
 import React from 'react'
 import {createRoot} from 'react-dom/client';
-import {Demo} from './components/Demo.tsx';
+import {Demo} from './demo/Demo.tsx';
 
 
 

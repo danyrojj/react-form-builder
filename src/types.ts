@@ -10,14 +10,20 @@ export interface ControllerCalllbackParam {
 
 
 export interface FieldConfig {
-factory:(param:ControllerCalllbackParam)=>ReactElement
+factory:(param:ControllerCalllbackParam)=>ReactElement,
+emptyValue:any;// literally any
 }
 
-export type Config = Record<string,FieldConfig>;
+
+export type Fields = Record<string,FieldConfig>
+
+export interface Config {
+    fields:Fields;
+}
 
 export type FallbackInputCmp = ()=>ReactElement;
-export interface FormGeneratorProps {
-    inputsDef:InputDef[];
+export interface FormBuilderProps {
+    items:ItemDef[];
     config:Config //todo how to pas enum from outside
     formOptions?:UseFormProps;
     fallbackInput?:FallbackInputCmp;
@@ -25,7 +31,7 @@ export interface FormGeneratorProps {
 
 
 
-export interface InputDef{
+export interface ItemDef{
     name:string;
     type:string;
     label?:string; // undefined/false would mean no label
@@ -38,8 +44,8 @@ export interface InputDef{
 }
 
 
-export interface InputRendererProps{
-    inputDef:InputDef;
+export interface FormInputProps{
+    inputDef:ItemDef;
     config:Config;
     fallbackInput?:FallbackInputCmp;
     control:Control

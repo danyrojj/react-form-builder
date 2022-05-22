@@ -1,6 +1,6 @@
 import React from 'react';
 import { Controller } from 'react-hook-form';
-import { InputRendererProps as FormInputProps } from '../types';
+import { FormInputProps as FormInputProps } from '../types';
 
 export const Label: React.FC<{ label: string }> = ({ label }) => {
     return (
@@ -11,12 +11,11 @@ export const Label: React.FC<{ label: string }> = ({ label }) => {
 };
 
 export const FormInput: React.FC<FormInputProps> = ({ inputDef, config, fallbackInput, control }) => {
-    const inputCmp = config?.[inputDef.type]?.factory || fallbackInput;
+    const inputCmp = config?.fields?.[inputDef.type]?.factory || fallbackInput;
     return (
-        <div style={{ border: '1px solid grey', width: 250, height: 150 }}>
-            {' '}
-            <Label label={inputDef.label} />{' '}
-            <Controller control={control} render={(form) => inputCmp(form)} name={inputDef.name} />{' '}
+        <div style={{ width: 250, margin: 25 }}>
+            <Label label={inputDef.label} />
+            <Controller control={control} render={(form) => inputCmp(form)} name={inputDef.name} />
         </div>
     );
 };

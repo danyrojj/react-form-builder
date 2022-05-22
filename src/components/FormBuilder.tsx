@@ -14,7 +14,7 @@ const FormBuilder: React.FC<FormBuilderProps> = ({ items, config, fallbackInput,
     const onSubmit = (data: FieldValues) => console.log(data);
     const onError = (errors, e) => console.log(errors, e);
     return (
-        <div>
+        <div style={{border:'1px solid lightgrey', borderRadius:25, padding:25}}>
             form
             <form onSubmit={handleSubmit(onSubmit, onError)} id={formId}>
                 <div className="inputs-container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>

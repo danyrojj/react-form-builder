@@ -33,5 +33,9 @@ export const config: Config = {
             ),
             emptyValue: 0,
         },
+        json:{
+            emptyValue:'',
+            factory: (form:ControllerCalllbackParam)=>(<textarea value={form.field.value} onChange={form.field.onChange}/>)
+        }
     },
 };

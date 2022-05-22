@@ -9,15 +9,24 @@ import { generateRandomForm } from './demo.utils.tsx';
 // factory as part of def?
 // expose form methods
 // default and consumer classnames
+// support form sections/sorting
+// override label via config
+// override falback cmp via config not props
+// onSubmit/onError from outside
+
+// utils tests
+// coverage
+// unit/integration
+// demo - in app manual json editing
 
 export const FallbackCmp = () => <>🚫</>;
 
 export const Demo: React.FC = () => {
     const [items, setItems] = useState<ItemDef[]>([]);
-    console.log('items', items);
+    const [key, setKey] = useState(0); // updating the key to force remount
 
 const genNewForm = () => {
-    setItems([]);
+    setKey(key=> key+1)
     setItems(generateRandomForm(config))
 }
     return (
@@ -25,7 +34,7 @@ const genNewForm = () => {
             Demo
             <button onClick={genNewForm}>Generate random form</button>
             {items.length &&
-            <FormBuilder items={items} config={config} fallbackInput={FallbackCmp}/>}
+            <FormBuilder key={key} items={items} config={config} fallbackInput={FallbackCmp}/>}
         </div>
     );
 };

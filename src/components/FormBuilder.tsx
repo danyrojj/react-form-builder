@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useForm, FieldValues } from 'react-hook-form';
 import { FormBuilderProps as FormBuilderProps } from '../types';
-import { initializeFormValues } from '../utils/utils.tsx';
-import { FormInput } from './FormInput.tsx';
+import { initializeFormValues } from '../utils/utils';
+import { FormInput } from './FormInput';
 
 const formId = 'form';
 const inputsContainerStyle = { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }

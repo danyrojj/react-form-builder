@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import FormBuilder from '../components/FormBuilder.tsx';
+import FormBuilder from '../components/FormBuilder';
 import { ItemDef } from '../types';
-import { config } from './demo.config.tsx';
-import { generateRandomForm } from './demo.utils.tsx';
+import { config } from './demo.config';
+import { generateRandomForm } from './demo.utils';
 
 // todos:
 // default style

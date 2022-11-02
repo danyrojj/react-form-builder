@@ -34,11 +34,11 @@ export interface FormBuilderProps {
 export interface ItemDef{
     name:string;
     type:string;
-    label?:string; // undefined/false would mean no label
+    label:string; 
     class?:string;
     rules?:ValidationRule; 
-    defaultValue?;
-    extras?;
+    defaultValue?:any;
+    // extras?; placeholder
     // factory?; // do i want to support providing factory as a part of item?
     disabled?:boolean;
 }

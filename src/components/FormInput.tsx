@@ -1,7 +1,7 @@
 import React from 'react';
 import { Controller } from 'react-hook-form';
 import { FormInputProps as FormInputProps } from '../types';
-import { Label } from './Label.tsx';
+import { Label } from './Label';
 
 const formInputStyle ={ width: 250, margin: 25 }
 

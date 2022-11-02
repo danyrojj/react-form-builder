@@ -28,7 +28,6 @@ export const Demo: React.FC = () => {
     const genNewForm = () => {
         setKey((key) => key + 1);
         setItems(generateRandomForm(config));
-        console.log('ite,', items)
     };
     return (
         <div>

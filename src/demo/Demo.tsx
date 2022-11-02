@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FormBuilder from '../components/FormBuilder.tsx';
-import {   ItemDef } from '../types';
+import { ItemDef } from '../types';
 import { config } from './demo.config.tsx';
 import { generateRandomForm } from './demo.utils.tsx';
 
@@ -25,16 +25,16 @@ export const Demo: React.FC = () => {
     const [items, setItems] = useState<ItemDef[]>([]);
     const [key, setKey] = useState(0); // updating the key to force remount
 
-const genNewForm = () => {
-    setKey(key=> key+1)
-    setItems(generateRandomForm(config))
-}
+    const genNewForm = () => {
+        setKey((key) => key + 1);
+        setItems(generateRandomForm(config));
+        console.log('ite,', items)
+    };
     return (
         <div>
             Demo
             <button onClick={genNewForm}>Generate random form</button>
-            {items.length &&
-            <FormBuilder key={key} items={items} config={config} fallbackInput={FallbackCmp}/>}
+            {items.length && <FormBuilder key={key} items={items} config={config} fallbackInput={FallbackCmp} />}
         </div>
     );
 };

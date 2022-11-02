@@ -1,5 +1,5 @@
-import React from "react";
-import { Config, ControllerCalllbackParam } from "../types";
+import React from 'react';
+import { Config, ControllerCalllbackParam } from '../types';
 
 export const config: Config = {
     fields: {
@@ -29,13 +29,15 @@ export const config: Config = {
         },
         range: {
             factory: (form: ControllerCalllbackParam) => (
-                <input type="range" value={form.field.value} onChange={form.field.onChange} />
+                <input type="range" value={form.field.value} onChange={form.field.onChange} placeholder="range" />
             ),
             emptyValue: 0,
         },
-        json:{
-            emptyValue:'',
-            factory: (form:ControllerCalllbackParam)=>(<textarea value={form.field.value} onChange={form.field.onChange}/>)
-        }
+        json: {
+            emptyValue: '',
+            factory: (form: ControllerCalllbackParam) => (
+                <textarea value={form.field.value} onChange={form.field.onChange} placeholder="json" />
+            ),
+        },
     },
 };

@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "preinstall": "npx only-allow pnpm", 
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
